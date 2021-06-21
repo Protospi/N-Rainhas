@@ -13,43 +13,43 @@
   )
 )
 
-; Define posicionamento recursivo da rainha em x e y na ordem: (1 1) ~ (max max)
-(defun posicione (x y rainhas max)
+; Define posicionamento recursivo da rainha em x e y na ordem: (1 1) ~ (n n)
+(defun posicione (x y rainhas n)
     
   ; Condição de posicionamento seguro  
   (cond
       
     ; Se verdadeiro Imprime tuplas (coluna linha) de posições da solução
-    ((= max (length rainhas)) (print (list 'Solução rainhas)) (cdr rainhas))
+    ((= n (length rainhas)) (print (list 'Solução rainhas)) (cdr rainhas))
     
     ; Caso contrario passa para proxima (coluna linha)
-    ((or (> x max) (> y max)) (cdr rainhas)) 
+    ((or (> x n) (> y n)) (cdr rainhas)) 
     
     ; Verifica se pode posicionar a rainha
     ((verifique x y rainhas)
     
       ; Define conjunto, aplica laço recursivo com contador x + 1 e empilha rainha
-      (setq rec (posicione (+ 1 x) 1 (append (list (list x y)) rainhas) max))
+      (setq rec (posicione (+ 1 x) 1 (append (list (list x y)) rainhas) n))
       
       ; Verifica condição de coluna
       (cond
           
         ; Condição de laço recursivo com contador y + 1 e conjunto rec verdadeiro
-        ((equal rainhas rec) (posicione x (+ 1 y) rainhas max)) 
+        ((equal rainhas rec) (posicione x (+ 1 y) rainhas n)) 
         (t rec)
       )
      )
         
     ; Executa a função de forma recursiva incrementando coluna y
-    (t (posicione x (+ 1 y) rainhas max))
+    (t (posicione x (+ 1 y) rainhas n))
   )
 )
 
 ; Define função
-(defun imprima (max rainhas)
+(defun imprima (n rainhas)
 
-    ; Executa o laço
-    (posicione 1 1 rainhas max))
+    ; Executa a função posicione
+    (posicione 1 1 rainhas n))
 
 ; Imprime solução com 4 rainhas
 (print (list 'Solução (imprima 4 '()))) 
