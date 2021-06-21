@@ -5,14 +5,15 @@ date: "6/21/2021"
 output: pdf_document
 ---
 
+
 ## __Introdução__
 
-* O objetivo deste projeto foi desenvolver um algoritmo para resolver o problema das NRainhas na liguagem funcional Common Lisp. Este relatório apresenta a descrição do problema, a construção do algoritmo e a documentação do programa.
+* O objetivo deste projeto foi desenvolver um algoritmo para resolver o problema das NRainhas na linguagem funcional Common Lisp. Este relatório apresenta a descrição do problema, a construção do algoritmo e a documentação do programa.
 
 ## __Problema__
 
 * O problema da N rainhas consiste em posicionar um número N de rainhas em um tabuleiro de xadrez. 
-* A peça rainha no jogo xadrez pode se movimentar um número ilimitado de casas nas linhas, colunas ou diagonais.
+* A peça rainha no jogo xadrez pode movimentar um número ilimitado de casas nas linhas, colunas ou diagonais.
 * O posicionamento deve ser realizado de forma que nenhuma rainha fique insegura, ou seja, nenhuma rainha pode estar na mesma linha, coluna ou diagonal que outra rainha.
 
 ## __Construção do Algoritmo__
@@ -23,13 +24,13 @@ output: pdf_document
   2. <__posicione__>
     + Executa laço iterar sobre o espaço de busca.
   3. <__imprima__>
-    + Imprime soluções encontradas pela programa.
+    + Imprime soluções encontradas pelo programa.
     
 * A ideia básica do programa é iterar sobre cada posição do tabuleiro N x N fornecido como argumento pelo usuário e verificar se as condições do posicionamento das N rainhas é seguro. 
 
 * O algoritmo itera sobre as linhas e colunas do tabuleiro procurando a primeira posição segura para cada rainha. Caso a posição inviabilize a solução final o algoritmo retorna e reposiciona a rainha anterior até encontrar uma solução onde as N rainhas estão seguras.
 
-* A verificação de linhas e colunas é realizada comparando os indices da possível nova posição com os indices das rainhas já posicionadas.
+* A verificação de linhas e colunas é realizada comparando os índices da possível nova posição com os índices das rainhas já posicionadas.
 
 * A verificação das diagonais é realizada calculando o valor absoluto de uma divisão.
 
@@ -40,9 +41,9 @@ output: pdf_document
 
 * As linhas, colunas e diagonais são inspecionadas e a função retorna verdadeiro se as condições de segurança da posição forem satisfeitas.
 
-* As funções <__cond__>, <__member__>, <__mapcar__>, <__car__>, <__cadr__>, <__lambda__> e <__abs__> da biblioteca base de liguagem Common Lisp foram utilizadas. 
+* As funções <__cond__>, <__member__>, <__mapcar__>, <__car__>, <__cadr__>, <__lambda__> e <__abs__> da biblioteca base de linguagem Common Lisp foram utilizadas. 
 
-* A função recebe como parametros:
+* A função recebe como parâmetros:
   1. A posição <__x__> no tabuleiro.
   2. A posição <__y__> no tabuleiro.
   3. A lista das posições das rainhas.
@@ -51,13 +52,13 @@ output: pdf_document
   1. Se a rainha é membra da mesma linha que as rainhas anteriores.
     + A função <__member__> avalia se é verdadeiro o pertencimento da rainha a uma posição segura.
     + A função mapcar avalia cada posição em relação a lista de rainhas.
-    + A função lambda recebe com paramentros a lista xy e aplica o mapcar para linhas e colunas.
+    + A função lambda recebe com parâmetros a lista xy e aplica o mapcar para linhas e colunas.
     + A expressão lógica or avalia se <__x__> é igual a primeira posição ou <__y__> à segunda.
   2. Se a rainha é membra da mesma diagonal que a das rainhas anteriores.
     + A função <__member__> avalia se é verdadeiro o pertencimento da rainha a uma posição segura.
     + A função mapcar avalia cada posição em relação a lista de rainhas.
-    + A função lambda recebe com paramentros a lista xy e a aplica o mapcar para diagonais.
-    + A expressão lógica or avalia se o valor absoluto da divisão de <__x__> - a primeira posição por <__y__> - segunda posição de <__xy__> é igual a 1.
+    + A função lambda recebe com parâmetros a lista xy e a aplica o mapcar para diagonais.
+    + A expressão lógica <__or__> avalia se o valor absoluto da divisão de <__x__> - a primeira posição por <__y__> - segunda posição de <__xy__> é igual a 1.
 
 ```{lisp,eval = F, warning = F, error = F}
 
@@ -86,7 +87,7 @@ output: pdf_document
 
 * A segunda função denominada <__posicione__>, itera sobre o tabuleiro.
 
-* A função recebe como parametros:
+* A função recebe como parâmetros:
   1. A posição <__x__> no tabuleiro.
   2. A posição <__y__> no tabuleiro.
   3. A lista das posições das <__rainhas__>.
@@ -111,7 +112,7 @@ output: pdf_document
     ; Se verdadeiro Imprime tuplas (coluna linha) de posições da solução
     ((= n (length rainhas)) (print (list 'Solução rainhas)) (cdr rainhas))
     
-    ; Caso contrario passa para proxima (coluna linha)
+    ; Caso contrário passa para proxima (coluna linha)
     ((or (> x n) (> y n)) (cdr rainhas)) 
     
     ; Verifica se pode posicionar a rainha
@@ -141,11 +142,11 @@ output: pdf_document
 
 * A terceira função denominada <__imprima__>, imprime os resultados do algoritmo e forma de tuplas da última coluna para a primeira.
 
-* A função recebe como parametros:
+* A função recebe como parâmetros:
   1. O máximo <__n__> de rainhas e tamanho do tabuleiro.
   2. Uma lista vazia para solução de posicionamentos.
   
-* A função imprima executa a chamada recursiva da função posicione começando com <__x__> = 1 e <__y__> = 1 e passando os parametros da lista vazia e tamanho do problema <__n__> que define o número de rainhas e dimensões do tabuleiro.
+* A função imprima executa a chamada recursiva da função posicione começando com <__x__> = 1 e <__y__> = 1 e passando os parâmetros da lista vazia e tamanho do problema <__n__> que define o número de rainhas e dimensões do tabuleiro.
 
 ```{lisp, eval = F, warning = F, error = F}
 
@@ -160,7 +161,7 @@ output: pdf_document
 
 ## __Conclusão__
 
-* Finalmente o programa pode ser executado com a chamda da função imprima que recebe os parametros:
+* Um exemplo da execução do programa é a resolução do problema com parâmetros:
   1. <__4__> para indicar a resolução do problema com 4 rainhas em um tabuleiro 4 x 4.
   2. <__()__> lista vazia para ser populada pelo programa com as soluções.
 
@@ -171,6 +172,10 @@ output: pdf_document
 
 ```
 
+* O Compilador __rextester__ permite executar o programa on-line no link:
+  * [\textcolor{blue}{https://rextester.com}](https://rextester.com/edit/QJIOB78933)
+
+
 ## Referências
 
 * [\textcolor{blue}{Pratical Common Lisp}](https://gigamonkeys.com/book/)
@@ -178,3 +183,5 @@ output: pdf_document
 * [\textcolor{blue}{www.tutorialspoint.com/lisp}](https://www.tutorialspoint.com/lisp/)
 
 * [\textcolor{blue}{You Tube}](https://www.youtube.com/watch?v=ymSq4wHrqyU)
+
+
