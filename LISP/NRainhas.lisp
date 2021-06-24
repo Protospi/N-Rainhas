@@ -46,10 +46,19 @@
 )
 
 ; Define função
-(defun imprima (n rainhas)
+(defun imprima (n)
+    
+    ; Verifica erro de exceção para entrada de caracteres
+    (assert (numberp n) (n) "Erro: O parâmetro <n> precisa ser um número.")
+    
+    ; Verifica erro de exceção para número real
+    (assert (integerp n) (n) "Erro: O parâmetro <n> precisa ser um número inteiro.")
+    
+    ; Verifica erro de exceção para entrada de número negativo
+    (assert (not (< n 1)) (n) "Erro: O parâmetro <n> precisa ser um número positivo.")
 
     ; Executa a função posicione
-    (posicione 1 1 rainhas n))
+    (posicione 1 1 '() n))
 
 ; Imprime solução com 4 rainhas
-(print (list 'Solução (imprima 4 '()))) 
+(print (list 'Solução (imprima 4))) 

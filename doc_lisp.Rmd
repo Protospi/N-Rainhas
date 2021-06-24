@@ -143,37 +143,48 @@ output: pdf_document
 
 * A terceira função denominada <__imprima__>, imprime os resultados do algoritmo no formato de tuplas da última coluna para a primeira.
 
-* A função recebe como parâmetros:
-  1. Número máximo <__n__> de rainhas e tamanho do tabuleiro.
-  2. Lista vazia <__rainhas__> para popular com os posicionamentos.
+* A função recebe como parâmetro <__n__> que define o número de rainhas e o tamanho do tabuleiro.
+
+* Foram defindas 3 excessões para o parâmetro <__n__>:
+  1. Verifica se <__n__> é número.
+  2. Verifica se <__n__> é número inteiro.
+  1. Verifica se <__n__> é número positivo.
   
-* A função imprima executa a chamada recursiva da função posicione começando com <__x__> = 1 e <__y__> = 1 e passando os parâmetros da lista vazia e tamanho do problema <__n__> que define o número de rainhas e dimensões do tabuleiro.
+* Executa a função posicione começando com <__x__> = 1 e <__y__> = 1 e o parâmetro <__n__>.
 
 ```{lisp, eval = F, warning = F, error = F}
 
-; Define função imprima
-(defun imprima (n rainhas)
+; Define função
+(defun imprima (n)
+    
+    ; Verifica erro de exceção para entrada de caracteres
+    (assert (numberp n) (n) "Erro: O parâmetro <n> precisa ser um número.")
+    
+    ; Verifica erro de exceção para número real
+    (assert (integerp n) (n) "Erro: O parâmetro <n> precisa ser um número inteiro.")
+    
+    ; Verifica erro de exceção para entrada de número negativo
+    (assert (not (< n 1)) (n) "Erro: O parâmetro <n> precisa ser um número positivo.")
 
-    ; Executa função posicione
-    (posicione 1 1 rainhas n))
+    ; Executa a função posicione
+    (posicione 1 1 '() n)
+)
 
 ```
 
 
 ## __Exemplo__
 
-* Um exemplo da execução do programa é a resolução do problema com os parâmetros:
-  1. <__4__> para indicar a resolução do problema com 4 rainhas em um tabuleiro 4 x 4.
-  2. <__()__> lista vazia para ser populada pelo programa com as soluções.
+* Um exemplo da execução do programa é a resolução do problema com o parâmetro <__4__> para indicar a resolução do problema com 4 rainhas em um tabuleiro 4 x 4.
 
 ```{lisp, eval = F, warning = F, error = F}
 
 ; Imprime solução com 4 rainhas
-(print (list 'Solução (imprima 4 '()))) 
+(print (list 'Solução (imprima 4))) 
 
 ```
 
-![](imagens/sol_lisp.png)
+![](imagens/sol_lisp.png){width=250px}
 
 * O compilador Common Lisp do servidor __rextester__  permite executar o programa no sítio:
   * [\textcolor{blue}{https://rextester.com}](https://rextester.com/edit/QJIOB78933)
