@@ -1,39 +1,40 @@
 ---
-title: "Documentação N-Rainhas Lisp"
+title: "N-Rainhas Commom Lisp"
 author: "Pedro Loes"
-date: "6/21/2021"
+date: "6/23/2021"
 output: pdf_document
 ---
 
 
 ## __Introdução__
 
-* O objetivo deste projeto foi desenvolver um algoritmo para resolver o problema das NRainhas na linguagem funcional Common Lisp. Este relatório apresenta a descrição do problema, a construção do algoritmo e a documentação do programa.
+* O objetivo deste projeto foi desenvolver um programa para resolver o problema das N-Rainhas na linguagem funcional Common Lisp. Este relatório apresenta a descrição do problema, explica o algorítimo, documenta o código e exemplifica o uso do programa.
 
-## __Problema__
+## __Problema N-Rainhas__
 
-* O problema da N rainhas consiste em posicionar um número N de rainhas em um tabuleiro de xadrez. 
-* A peça rainha no jogo xadrez pode movimentar um número ilimitado de casas nas linhas, colunas ou diagonais.
-* O posicionamento deve ser realizado de forma que nenhuma rainha fique insegura, ou seja, nenhuma rainha pode estar na mesma linha, coluna ou diagonal que outra rainha.
+* O problema consiste em posicionar um número N de rainhas em um tabuleiro de xadrez $X_{N,N}$. 
+* A peça rainha pode ser movimentada um número ilimitado de casas nas linhas, colunas ou diagonais.
+* Uma posição é segura se não está na mesma linha, coluna ou diagonal das posições ocupadas por outras rainhas.
 
 ## __Construção do Algoritmo__
 
-* O algoritmo foi construído com 3 funções:
+* O algoritmo foi desenvolvido com a implementação de 3 funções:
   1. <__verifique__>
-    + Verifica se a rainha da vez pode ser posicionada em determinada posição.
+    + Verifica se uma posição é segura.
   2. <__posicione__>
-    + Executa laço iterar sobre o espaço de busca.
+    + Executa laço para iterar sobre o espaço de busca.
   3. <__imprima__>
     + Imprime soluções encontradas pelo programa.
     
-* A ideia básica do programa é iterar sobre cada posição do tabuleiro N x N fornecido como argumento pelo usuário e verificar se as condições do posicionamento das N rainhas é seguro. 
+* O objetivo do programa é posicionar um número __n__ de rainhas fornecido pelo usuário.
 
-* O algoritmo itera sobre as linhas e colunas do tabuleiro procurando a primeira posição segura para cada rainha. Caso a posição inviabilize a solução final o algoritmo retorna e reposiciona a rainha anterior até encontrar uma solução onde as N rainhas estão seguras.
+* O funcionamento do algoritmo consiste em iterar sobre as linhas e colunas do tabuleiro $X_{n,n}$ procurando uma posição segura para cada rainha. 
 
-* A verificação de linhas e colunas é realizada comparando os índices da possível nova posição com os índices das rainhas já posicionadas.
+* A verificação de segurança para linhas e colunas é realizada comparando os índices da possível nova posição com os índices de dominância das rainhas já posicionadas.
 
-* A verificação das diagonais é realizada calculando o valor absoluto de uma divisão.
+* A verificação de segurança nas diagonais é confirmada se o valor absoluto da divisão das distâncias entre as rainhas for diferente de 1.
 
+* Caso uma posição selecionada inviabilize o posicionamento de qualquer rainha posterior, o algoritmo retorna e reposiciona as rainhas anteriores de forma recursiva até encontrar uma solução onde as __n__ rainhas estarão seguras.
 
 ### __1. Verifique__
 
@@ -98,7 +99,7 @@ output: pdf_document
     + Caso verdadeiro imprime tupla (coluna, linha) da maior para menor.
   2. Se <__x__> ou <__y__> é maior que o máximo
     + Caso verdadeiro passa para próxima rainha da lista rainhas.
-  3. Se verifica rainhas permite o posicionamento.
+  3. Se <__verifica__> permite o posicionamento.
     + Caso verdadeiro adiciona posição a lista rainha caso contrário chama a função verifica de forma recursiva nas posições <__x__> + 1 e <__y__> + 1.
 
 ```{lisp,eval = F, warning = F, error = F}
@@ -140,11 +141,11 @@ output: pdf_document
 
 ### __3. Imprima__
 
-* A terceira função denominada <__imprima__>, imprime os resultados do algoritmo e forma de tuplas da última coluna para a primeira.
+* A terceira função denominada <__imprima__>, imprime os resultados do algoritmo no formato de tuplas da última coluna para a primeira.
 
 * A função recebe como parâmetros:
   1. O máximo <__n__> de rainhas e tamanho do tabuleiro.
-  2. Uma lista vazia para solução de posicionamentos.
+  2. Uma lista vazia __()__ para popular com os posicionamentos.
   
 * A função imprima executa a chamada recursiva da função posicione começando com <__x__> = 1 e <__y__> = 1 e passando os parâmetros da lista vazia e tamanho do problema <__n__> que define o número de rainhas e dimensões do tabuleiro.
 
@@ -159,9 +160,9 @@ output: pdf_document
 ```
 
 
-## __Conclusão__
+## __Exemplo__
 
-* Um exemplo da execução do programa é a resolução do problema com parâmetros:
+* Um exemplo da execução do programa é a resolução do problema com os parâmetros:
   1. <__4__> para indicar a resolução do problema com 4 rainhas em um tabuleiro 4 x 4.
   2. <__()__> lista vazia para ser populada pelo programa com as soluções.
 
@@ -172,7 +173,9 @@ output: pdf_document
 
 ```
 
-* O Compilador __rextester__ permite executar o programa on-line no link:
+![](imagens/sol_lisp.png)
+
+* O compilador Common Lisp do servidor __rextester__  permite executar o programa no sítio:
   * [\textcolor{blue}{https://rextester.com}](https://rextester.com/edit/QJIOB78933)
 
 
