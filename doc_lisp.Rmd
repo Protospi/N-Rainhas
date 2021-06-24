@@ -144,8 +144,8 @@ output: pdf_document
 * A terceira função denominada <__imprima__>, imprime os resultados do algoritmo no formato de tuplas da última coluna para a primeira.
 
 * A função recebe como parâmetros:
-  1. O máximo <__n__> de rainhas e tamanho do tabuleiro.
-  2. Uma lista vazia __()__ para popular com os posicionamentos.
+  1. Número máximo <__n__> de rainhas e tamanho do tabuleiro.
+  2. Lista vazia <__rainhas__> para popular com os posicionamentos.
   
 * A função imprima executa a chamada recursiva da função posicione começando com <__x__> = 1 e <__y__> = 1 e passando os parâmetros da lista vazia e tamanho do problema <__n__> que define o número de rainhas e dimensões do tabuleiro.
 
