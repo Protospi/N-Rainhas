@@ -11,7 +11,7 @@
 ### Execução dos Programas
 
 * Java:
-  + [https://replit.com](https://replit.com/@PedroLadeira/QuatroRainhas#quatroRainhas.java)
+  + [https://replit.com](https://replit.com/@PedroLadeira/N-Rainhas-Java#Main.java)
 
 * Lisp:
   + [https://rextester.com](https://rextester.com/edit/QJIOB78933)
@@ -30,6 +30,7 @@
 ### Referências
 
 * Java
+  + [\textcolor{blue}{https://homepages.dcc.ufmg.br/~bigonha}](https://homepages.dcc.ufmg.br/~bigonha/Livros/poo-java.pdf)
   + [www.tutorialspoint.com/java](https://www.tutorialspoint.com/java/)
   + [Youtube Derek Banas Java](https://www.youtube.com/watch?v=n-xAqcBCws4)
 
