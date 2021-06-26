@@ -21,6 +21,20 @@
 
 ***
 
+
+### Relatórios PDF
+
+* Java:
+  + [https://git.com](https://github.com/Protospi/N-Rainhas/blob/Pedro-Loes/JAVA/doc_java.pdf)
+
+* Lisp:
+  + [https://git.com](https://github.com/Protospi/N-Rainhas/blob/Pedro-Loes/LISP/doc_lisp.pdf)
+
+* Prolog
+  
+
+***
+
 ### Licença
 
 * MIT
