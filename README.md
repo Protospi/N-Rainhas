@@ -32,8 +32,6 @@
 
 * Prolog
   + [https://github.com](https://github.com/Protospi/N-Rainhas/blob/Pedro-Loes/PROLOG/relatorio_prolog.pdf)
-  
-  https://github.com/Protospi/N-Rainhas/blob/Pedro-Loes/PROLOG/relatorio_prolog.pdf
 
 ***
 
