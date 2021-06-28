@@ -184,6 +184,7 @@ output: pdf_document
 
 ```
 
+&nbsp;&nbsp;&nbsp;&nbsp;
 ![](imagens/sol_lisp.png){width=250px}
 
 * O compilador Common Lisp do servidor __rextester__  permite executar o programa no sítio:
