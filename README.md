@@ -25,13 +25,15 @@
 ### Relatórios PDF
 
 * Java:
-  + [https://git.com](https://github.com/Protospi/N-Rainhas/blob/Pedro-Loes/JAVA/doc_java.pdf)
+  + [https://github.com](https://github.com/Protospi/N-Rainhas/blob/Pedro-Loes/JAVA/doc_java.pdf)
 
 * Lisp:
-  + [https://git.com](https://github.com/Protospi/N-Rainhas/blob/Pedro-Loes/LISP/doc_lisp.pdf)
+  + [https://github.com](https://github.com/Protospi/N-Rainhas/blob/Pedro-Loes/LISP/doc_lisp.pdf)
 
 * Prolog
+  + [https://github.com](https://github.com/Protospi/N-Rainhas/blob/Pedro-Loes/PROLOG/relatorio_prolog.pdf)
   
+  https://github.com/Protospi/N-Rainhas/blob/Pedro-Loes/PROLOG/relatorio_prolog.pdf
 
 ***
 
